@@ -42,7 +42,7 @@ export function HeroCarousel() {
   const currentBanner = banners[current]
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-black">
+    <section className="relative min-h-screen w-full overflow-hidden bg-black border-b border-border/60">
       {/* Carousel Container */}
       <div className="relative h-screen w-full">
         {/* Background Image */}
@@ -59,8 +59,8 @@ export function HeroCarousel() {
 
         {/* Content */}
         <div className="absolute inset-0 flex items-center justify-start">
-          <div className="relative z-10 max-w-2xl px-4 sm:px-6 lg:px-8">
-            <div className="space-y-6">
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+            <div className="max-w-2xl space-y-6">
               <h1 className="text-hero text-white leading-tight">
                 {currentBanner.title}
               </h1>
@@ -82,7 +82,7 @@ export function HeroCarousel() {
         {/* Navigation Buttons */}
         <button
           onClick={goPrev}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-white/20 hover:bg-white/40 transition-all text-white"
+          className="absolute left-4 sm:left-6 lg:left-8 top-1/2 -translate-y-1/2 z-20 p-2.5 rounded-full bg-white/20 border border-white/30 hover:bg-white/40 transition-all text-white"
           aria-label="Previous banner"
         >
           <ChevronLeft className="w-6 h-6" />
@@ -90,7 +90,7 @@ export function HeroCarousel() {
 
         <button
           onClick={goNext}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-white/20 hover:bg-white/40 transition-all text-white"
+          className="absolute right-4 sm:right-6 lg:right-8 top-1/2 -translate-y-1/2 z-20 p-2.5 rounded-full bg-white/20 border border-white/30 hover:bg-white/40 transition-all text-white"
           aria-label="Next banner"
         >
           <ChevronRight className="w-6 h-6" />

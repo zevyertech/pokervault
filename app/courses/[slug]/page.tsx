@@ -137,9 +137,9 @@ export default function CourseDetailPage() {
 
             {/* Sticky Sidebar */}
             <div>
-              <div className="sticky top-24 bg-card rounded-lg border border-border/50 p-10 space-y-8 shadow-lg">
+              <div className="sticky top-24 bg-card rounded-lg border border-border/70 p-10 space-y-8 shadow-lg">
                 {/* Price Section */}
-                <div className="text-center py-6">
+                <div className="text-center py-6 rounded-xl border border-accent/45 bg-gradient-to-br from-accent/20 via-accent/10 to-card">
                   <p className="text-xs font-semibold text-muted-foreground mb-3 uppercase tracking-wider">Course Price</p>
                   <div className="text-5xl font-bold text-accent mb-2">${course.price}</div>
                   <p className="text-sm text-foreground/70">Lifetime access to all course content</p>
@@ -164,7 +164,7 @@ export default function CourseDetailPage() {
                 )}
 
                 {/* Course Stats */}
-                <div className="bg-background/40 rounded-lg p-6 space-y-4 text-sm">
+                <div className="bg-background/40 rounded-lg p-6 space-y-4 text-sm border border-border/50">
                   <p className="text-xs font-semibold text-foreground uppercase tracking-wider">What You Get</p>
                   <div className="space-y-3">
                     <div className="flex items-center gap-3 text-foreground/75">

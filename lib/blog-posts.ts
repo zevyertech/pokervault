@@ -32,3 +32,23 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
 
   return data || []
 }
+
+export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
+  if (!supabase) {
+    console.error('Supabase not configured')
+    return null
+  }
+
+  const { data, error } = await supabase
+    .from('blog_posts')
+    .select('*')
+    .eq('slug', slug)
+    .single()
+
+  if (error) {
+    console.error('Error fetching blog post by slug:', error)
+    return null
+  }
+
+  return data
+}

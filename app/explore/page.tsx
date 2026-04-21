@@ -98,9 +98,9 @@ export default function ExplorePage() {
                   <Link
                     key={course.id}
                     href={`/courses/${course.slug}`}
-                    className="group flex flex-col h-full"
+                    className="group flex flex-col h-full rounded-xl border border-border/70 bg-card/65 backdrop-blur-sm p-3 hover:border-accent/60 transition-all"
                   >
-                    <div className="relative aspect-video rounded-lg overflow-hidden mb-5 bg-muted shadow-md flex-shrink-0">
+                    <div className="relative aspect-video rounded-lg overflow-hidden mb-4 bg-muted shadow-md border border-border/50 flex-shrink-0">
                       <Image
                         src={course.thumbnail_url || '/placeholder.svg'}
                         alt={course.title}
@@ -116,7 +116,7 @@ export default function ExplorePage() {
                       )}
                     </div>
 
-                    <div className="flex flex-col flex-grow">
+                    <div className="flex flex-col flex-grow px-1 pb-1">
                       <div className="mb-3">
                         <Badge variant="outline" className="capitalize text-xs font-semibold">
                           {course.level}

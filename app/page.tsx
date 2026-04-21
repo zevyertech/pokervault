@@ -23,6 +23,8 @@ const featuredCourseCards = featuredCourses.map((course, index) => ({
   rating: 4.6 + index * 0.1,
   level: course.level,
   badge: course.badge,
+  category: course.category,
+  shortDescription: course.short_description,
 }))
 
 const testimonials = [
@@ -50,6 +52,24 @@ const testimonials = [
     author: 'Emma Thompson',
     role: 'Tournament Player',
     achievement: 'Regional Champion',
+  },
+  {
+    quote: 'I stopped punting stacks after module two. The structure and drills are practical and easy to apply.',
+    author: 'Noah Ibrahim',
+    role: 'Online Grinder',
+    achievement: '+18bb/100 Improvement',
+  },
+  {
+    quote: 'The bankroll rules and review templates changed everything for me. I now play with total confidence.',
+    author: 'Liam Costa',
+    role: 'Live Cash Specialist',
+    achievement: '12-Month Winning Streak',
+  },
+  {
+    quote: 'Hands-down the cleanest poker education platform I\'ve used. You can feel the quality in every module.',
+    author: 'Ravi Kapoor',
+    role: 'MTT Competitor',
+    achievement: '$27K Tournament Score',
   },
 ]
 
@@ -100,7 +120,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured Courses Section */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-background border-b border-border/50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-20">
             <p className="text-label text-accent mb-4">Bestselling Courses</p>
@@ -147,7 +167,7 @@ export default function HomePage() {
       </section>
 
       {/* Instructors Section */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-background border-b border-border/50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-20">
             <p className="text-label text-accent mb-4">Expert Instructors</p>
@@ -166,17 +186,24 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials Grid */}
-      <section className="py-24 bg-card">
+      <section className="py-24 bg-card border-b border-border/50 overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16 text-center">
             <p className="text-label text-accent mb-4">Social Proof</p>
             <h2 className="text-h2 text-foreground">Join Thousands of Winning Players</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.slice(1).map((testimonial, idx) => (
-              <TestimonialCard key={idx} {...testimonial} />
-            ))}
+          <div className="relative">
+            <div
+              className="flex gap-6 w-max"
+              style={{ animation: 'marquee 55s linear infinite' }}
+            >
+              {[...testimonials.slice(1), ...testimonials.slice(1)].map((testimonial, idx) => (
+                <div key={idx} className="w-[320px] sm:w-[360px]">
+                  <TestimonialCard {...testimonial} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
