@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { mockCommunityTestimonials } from '@/lib/mock-data'
-import { MessageCircle, Send } from 'lucide-react'
+import { MessageCircle, Send, Sparkles, Radio, Users, Shield, Zap } from 'lucide-react'
 
 export default function CommunityPage() {
   return (
@@ -14,22 +14,47 @@ export default function CommunityPage() {
       <Navbar />
 
       {/* Header */}
-      <section className="py-16 bg-card border-b border-border/50">
+      <section className="py-16 bg-card border-b border-border/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6">
-          <h1 className="text-h2 text-foreground mb-4">Join Our Community</h1>
-          <p className="text-base text-foreground/70 max-w-2xl">Connect with serious poker players, share strategies, and grow together</p>
+          <div className="rounded-2xl border border-accent/35 bg-gradient-to-br from-accent/20 via-card to-card p-8">
+            <p className="text-label text-accent mb-3">Poker Vault Network</p>
+            <h1 className="text-h2 text-foreground mb-4">Join a Futuristic Poker Community</h1>
+            <p className="text-base text-foreground/75 max-w-3xl">
+              Plug into real-time strategy discussions, peer reviews, and elite learning channels built for modern competitive players.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Community Sections */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-background border-b border-border/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-14">
+            {[
+              { label: 'Active Members', value: '45K+', icon: Users },
+              { label: 'Daily Discussions', value: '320+', icon: Radio },
+              { label: 'Weekly Sessions', value: '18', icon: Zap },
+              { label: 'Verified Mentors', value: '24', icon: Shield },
+            ].map((stat) => {
+              const Icon = stat.icon
+              return (
+                <div key={stat.label} className="rounded-xl border border-border/70 bg-card/65 p-4">
+                  <div className="w-9 h-9 rounded-md bg-accent/15 border border-accent/35 flex items-center justify-center mb-3">
+                    <Icon className="w-4 h-4 text-accent" />
+                  </div>
+                  <p className="text-2xl font-bold text-foreground">{stat.value}</p>
+                  <p className="text-sm text-foreground/65">{stat.label}</p>
+                </div>
+              )
+            })}
+          </div>
+
           <div className="grid md:grid-cols-2 gap-16 mb-24">
             {/* Discord Community */}
             <div className="flex flex-col">
-              <div className="mb-8">
+              <div className="mb-8 rounded-2xl border border-border/70 bg-card/70 p-8 h-full">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-lg bg-blue-600/20 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-blue-600/20 border border-blue-500/40 flex items-center justify-center">
                     <MessageCircle className="w-6 h-6 text-blue-600" />
                   </div>
                   <h2 className="text-h3 text-foreground">Discord Community</h2>
@@ -66,9 +91,9 @@ export default function CommunityPage() {
 
             {/* Telegram Community */}
             <div className="flex flex-col">
-              <div className="mb-8">
+              <div className="mb-8 rounded-2xl border border-border/70 bg-card/70 p-8 h-full">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-lg bg-cyan-500/20 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center">
                     <Send className="w-6 h-6 text-cyan-500" />
                   </div>
                   <h2 className="text-h3 text-foreground">Telegram Channel</h2>
@@ -105,7 +130,7 @@ export default function CommunityPage() {
           </div>
 
           {/* Testimonials */}
-          <div>
+          <div className="pt-2">
             <div className="text-center mb-16">
               <p className="text-label text-accent mb-4">Community Stories</p>
               <h2 className="text-h2 text-foreground">What Members Say</h2>
@@ -113,9 +138,9 @@ export default function CommunityPage() {
 
             <div className="grid md:grid-cols-2 gap-8">
               {mockCommunityTestimonials.map((testimonial, idx) => (
-                <div key={idx} className="bg-card border border-border/50 rounded-lg p-8 hover:shadow-md transition-shadow">
+                <div key={idx} className="bg-card border border-border/70 rounded-xl p-8 hover:border-accent/55 transition-all">
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="relative w-14 h-14 rounded-full overflow-hidden flex-shrink-0">
+                    <div className="relative w-14 h-14 rounded-full overflow-hidden border border-accent/35 flex-shrink-0">
                       <Image
                         src={testimonial.avatar}
                         alt={testimonial.name}
@@ -128,7 +153,11 @@ export default function CommunityPage() {
                       <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                     </div>
                   </div>
-                  <p className="text-foreground/80 italic">"{testimonial.quote}"</p>
+                  <p className="text-foreground/80 italic mb-4">"{testimonial.quote}"</p>
+                  <div className="inline-flex items-center gap-2 text-xs text-accent">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    Verified community member
+                  </div>
                 </div>
               ))}
             </div>

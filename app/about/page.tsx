@@ -2,31 +2,67 @@
 
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
+import { Brain, ShieldCheck, Rocket, Users, Sparkles, Target, Trophy, Cpu } from 'lucide-react'
 
 export default function AboutPage() {
+  const values = [
+    {
+      title: 'Precision Learning',
+      description: 'Every lesson is engineered for direct table impact, with practical frameworks and modern decision trees.',
+      icon: Brain,
+    },
+    {
+      title: 'Transparent Strategy',
+      description: 'No gimmicks, no hype cycles. We teach tested systems and measurable poker fundamentals.',
+      icon: ShieldCheck,
+    },
+    {
+      title: 'Performance Culture',
+      description: 'Our ecosystem is built for long-term growth, consistency, and disciplined execution.',
+      icon: Rocket,
+    },
+    {
+      title: 'Collective Edge',
+      description: 'A serious community where players exchange insights, review hands, and scale results together.',
+      icon: Users,
+    },
+  ]
+
+  const pillars = [
+    { title: 'Elite Mentors', text: 'Learn from proven professionals with elite-level tournament and cash game experience.', icon: Trophy },
+    { title: 'Structured Paths', text: 'Progressive curriculum from fundamentals to advanced exploitation and game theory.', icon: Target },
+    { title: 'Modern Platform', text: 'Fast, clean, and designed for focused learning with premium UX and future-ready systems.', icon: Cpu },
+    { title: 'Results-First Mindset', text: 'Everything we ship is aimed at improving your decisions, confidence, and long-term ROI.', icon: Sparkles },
+  ]
+
   return (
     <main className="min-h-screen bg-background flex flex-col">
       <Navbar />
 
       {/* Header */}
-      <section className="py-16 bg-card border-b border-border/50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-6">
-          <h1 className="text-h2 text-foreground mb-4">About Poker Vault</h1>
-          <p className="text-base text-foreground/70">Building the future of poker education</p>
+      <section className="py-20 bg-card border-b border-border/60">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="rounded-2xl border border-accent/35 bg-gradient-to-br from-accent/20 via-card to-card p-8 sm:p-10">
+            <p className="text-label text-accent mb-4">Who We Are</p>
+            <h1 className="text-h2 text-foreground mb-4">Building the Most Futuristic Poker Learning Ecosystem</h1>
+            <p className="text-base text-foreground/75 max-w-3xl">
+              Poker Vault combines elite coaching, high-performance learning design, and a powerful community so players can move from random play to strategic mastery.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="py-24 bg-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-6 space-y-16">
+      <section className="py-24 bg-background border-b border-border/50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           {/* Mission */}
-          <div>
+          <div className="rounded-2xl border border-border/70 bg-card/70 backdrop-blur-sm p-8">
             <h2 className="text-h3 text-foreground mb-6">Our Mission</h2>
             <p className="text-base text-foreground/80 leading-relaxed mb-4">
-              Poker Vault exists to democratize poker education and empower players at all levels to improve their game. We believe that with proper guidance, strategy, and mental preparation, anyone can become a winning poker player.
+              We help players think sharper, execute cleaner, and build sustainable edge through structured training and expert mentorship.
             </p>
             <p className="text-base text-foreground/80 leading-relaxed">
-              Our mission is to bridge the gap between casual players and professional poker players by providing world-class education at an accessible price point, combined with a supportive community of like-minded individuals.
+              From first bankroll plans to advanced exploit lines, Poker Vault is designed to turn intent into measurable growth.
             </p>
           </div>
 
@@ -34,44 +70,40 @@ export default function AboutPage() {
           <div>
             <h2 className="text-h3 text-foreground mb-6">Our Values</h2>
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-card border border-border/50 rounded-lg p-8">
-                <h3 className="text-lg font-semibold text-foreground mb-4">Excellence</h3>
-                <p className="text-foreground/70">We only work with the best instructors and create the highest quality courses in the poker education space.</p>
-              </div>
-              <div className="bg-card border border-border/50 rounded-lg p-8">
-                <h3 className="text-lg font-semibold text-foreground mb-4">Integrity</h3>
-                <p className="text-foreground/70">We believe in honest education and proven strategies. No hype, no shortcuts—just real poker knowledge.</p>
-              </div>
-              <div className="bg-card border border-border/50 rounded-lg p-8">
-                <h3 className="text-lg font-semibold text-foreground mb-4">Community</h3>
-                <p className="text-foreground/70">We foster a supportive community where players help each other grow and succeed together.</p>
-              </div>
-              <div className="bg-card border border-border/50 rounded-lg p-8">
-                <h3 className="text-lg font-semibold text-foreground mb-4">Accessibility</h3>
-                <p className="text-foreground/70">High-quality poker education should be accessible to everyone, regardless of their background or bankroll.</p>
-              </div>
+              {values.map((item) => {
+                const Icon = item.icon
+                return (
+                  <div key={item.title} className="bg-card border border-border/70 rounded-xl p-8 hover:border-accent/60 transition-all">
+                    <div className="w-11 h-11 rounded-lg bg-accent/15 border border-accent/35 flex items-center justify-center mb-5">
+                      <Icon className="w-5 h-5 text-accent" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-foreground mb-3">{item.title}</h3>
+                    <p className="text-foreground/70">{item.description}</p>
+                  </div>
+                )
+              })}
             </div>
           </div>
 
           {/* History */}
-          <div>
+          <div className="rounded-2xl border border-border/70 bg-card/60 p-8">
             <h2 className="text-h3 text-foreground mb-6">Our Story</h2>
             <p className="text-base text-foreground/80 leading-relaxed mb-4">
-              Poker Vault was founded in 2020 by a group of professional poker players who saw a gap in the market. While there were plenty of resources for beginners, there weren&apos;t many comprehensive, up-to-date courses taught by actual professionals.
+              Poker Vault started with one goal: make professional-level poker education practical, modern, and accessible to serious learners.
             </p>
             <p className="text-base text-foreground/80 leading-relaxed mb-4">
-              We started by recruiting some of the best poker players in the world and creating courses that distilled years of their experience into digestible, actionable lessons. Our first course, "Texas Hold&apos;em Fundamentals," became an instant success with over 12,000 students in the first year.
+              We brought together top instructors, built a clean learning framework, and transformed years of experience into clear, actionable systems.
             </p>
             <p className="text-base text-foreground/80 leading-relaxed">
-              Today, Poker Vault has grown to include 8+ courses covering everything from bankroll management to advanced tournament strategy, with a thriving community of 45,000+ students worldwide.
+              Today, we support a global player base with advanced training paths, community support, and a platform engineered for long-term improvement.
             </p>
           </div>
 
           {/* Team */}
           <div>
             <h2 className="text-h3 text-foreground mb-6">Our Team</h2>
-            <p className="text-base text-foreground/80 leading-relaxed mb-8">
-              We&apos;re supported by a dedicated team of poker professionals, educators, and community managers who are passionate about helping others succeed in poker.
+            <p className="text-base text-foreground/80 leading-relaxed mb-8 max-w-3xl">
+              A hybrid team of elite players, strategy coaches, and product builders focused on one thing: helping members win smarter.
             </p>
             <div className="grid md:grid-cols-3 gap-8">
               {[
@@ -79,7 +111,7 @@ export default function AboutPage() {
                 { name: 'Phil Ivey', role: 'Course Advisor', bio: 'Pro Tour Champion, known for tournament excellence' },
                 { name: 'Sarah Chen', role: 'Community Manager', bio: 'Dedicated to building our thriving player community' },
               ].map((member) => (
-                <div key={member.name} className="bg-card border border-border/50 rounded-lg p-6 text-center">
+                <div key={member.name} className="bg-card border border-border/70 rounded-xl p-6 text-center hover:border-accent/55 transition-all">
                   <h3 className="text-lg font-semibold text-foreground mb-1">{member.name}</h3>
                   <p className="text-sm text-accent font-medium mb-3">{member.role}</p>
                   <p className="text-sm text-foreground/70">{member.bio}</p>
@@ -91,42 +123,23 @@ export default function AboutPage() {
           {/* Why Choose Us */}
           <div>
             <h2 className="text-h3 text-foreground mb-6">Why Choose Poker Vault?</h2>
-            <div className="space-y-4">
-              <div className="flex gap-4">
-                <span className="text-2xl text-accent flex-shrink-0">✓</span>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1">World-Class Instructors</h4>
-                  <p className="text-foreground/70">Learn from professional poker players with proven track records and years of experience.</p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <span className="text-2xl text-accent flex-shrink-0">✓</span>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1">Comprehensive Curriculum</h4>
-                  <p className="text-foreground/70">Cover everything from fundamentals to advanced strategies across all poker formats.</p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <span className="text-2xl text-accent flex-shrink-0">✓</span>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1">Lifetime Access</h4>
-                  <p className="text-foreground/70">Once you enroll, you have permanent access to all course materials and future updates.</p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <span className="text-2xl text-accent flex-shrink-0">✓</span>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1">Active Community</h4>
-                  <p className="text-foreground/70">Connect with 45,000+ poker enthusiasts for strategy discussions and support.</p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <span className="text-2xl text-accent flex-shrink-0">✓</span>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1">Money-Back Guarantee</h4>
-                  <p className="text-foreground/70">We&apos;re confident in our courses. Get a full refund within 30 days if not satisfied.</p>
-                </div>
-              </div>
+            <div className="grid sm:grid-cols-2 gap-5">
+              {pillars.map((pillar) => {
+                const Icon = pillar.icon
+                return (
+                  <div key={pillar.title} className="rounded-xl border border-border/70 bg-card/70 p-5 hover:border-accent/60 transition-all">
+                    <div className="flex items-start gap-3">
+                      <div className="w-9 h-9 rounded-lg bg-accent/15 border border-accent/35 flex items-center justify-center">
+                        <Icon className="w-4.5 h-4.5 text-accent" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-1">{pillar.title}</h4>
+                        <p className="text-foreground/70 text-sm">{pillar.text}</p>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </div>
